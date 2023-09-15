@@ -1,0 +1,46 @@
+img.logo{
+  max-width: 70px;
+  max-height: 50px;
+}
+
+nav {
+  background: #0a1a56 !important;
+  padding:  0 0 2px 0 !important; 
+
+  ul{
+    li a{
+      color: #f0e934 !important;
+      transition: .4s;
+      font-size: .87rem;
+    }
+
+    li a:hover{
+      color: #f0ea3498 !important;
+      // margin-top: 5px;
+      transform: translateY(5px);
+    }
+    .t {
+      border:  1px solid #f0e934 !important;
+      background-color:transparent!important ;
+      color: #f0e934 ;
+      transition: .4s !important;
+  }
+  .t:hover{
+    background: #f0e934 !important;
+    color: #0a1a56 !important;
+  }
+  
+  }
+  
+  button {
+    color: #f0e934 !important;
+    background-color: rgb(150, 150, 150) !important;
+
+    // .navbar-toggler-icon{
+    // }
+  }
+
+
+  
+}
+

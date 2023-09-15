@@ -1,0 +1,20 @@
+.row{
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  // background-color: aqua;
+  // margin-top: 6px;
+  
+
+}
+
+
+
+.s{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+button[mat-raised-button] {
+  flex: 1;
+}
