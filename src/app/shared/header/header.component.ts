@@ -1,7 +1,9 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { LoginComponent } from 'src/app/pages/login/login.component';
-import { SignupComponent } from 'src/app/pages/signup/signup.component';
+import { LoginComponent } from  '../../pages/login/login.component';
+import { SignupComponent } from '../../pages/signup/signup.component';
+import { state } from '@angular/animations';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +11,10 @@ import { SignupComponent } from 'src/app/pages/signup/signup.component';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-
+  isAlert = false
+  satus   = "success"
+  massegAlert = "YOu succefully logged in"
+  _dialogref:any;
 
   constructor(private _dialog:MatDialog) {}
 
@@ -21,6 +26,19 @@ export class HeaderComponent {
   }
 
   signuppressed(){
-    this._dialog.open(SignupComponent)
+    this._dialogref =  this._dialog.open(SignupComponent)
+    this._dialogref.componentInstance.statusOfSignup.subscribe(
+      (val:any) =>{
+        this.satus = val[0];
+        this.isAlert = true
+        this.massegAlert = val[1]
+      }
+      )
+
+  }
+
+  closeAlertHandler(data:boolean){
+    console.log(data)
+    this.isAlert = data
   }
 }

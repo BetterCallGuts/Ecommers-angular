@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Main } from '../../main';
 
 @Component({
   selector: 'app-store',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./store.component.scss']
 })
 export class StoreComponent {
+
+  constructor (private _pageTitle:Title) {
+    this._pageTitle.setTitle(`Store|${Main.Appname}`)
+
+  }
 
 }

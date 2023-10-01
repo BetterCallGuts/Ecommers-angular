@@ -9,6 +9,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { AlertComponent } from './alert/alert.component'
 
 // BrowserModule,
   
@@ -18,7 +20,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AlertComponent
   ],
   imports: [
     CommonModule,
@@ -28,11 +31,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatToolbarModule
   ],
   exports : [
     HeaderComponent,
     FooterComponent,
+    AlertComponent
   ]
 })
 export class SharedModule { }

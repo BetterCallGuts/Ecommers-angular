@@ -42,10 +42,10 @@
       </ul>
       <ul class="navbar-nav gap-2">
         <li class="nav-item">
-      <button type="button" class="btn btn-outline t" (click)="loginpressed()">Login</button>
+      <button type="button" class="btn btn-outline t" (click)="loginpressed() ">Login</button>
     </li>
         <li class="nav-item">
-      <button type="button" class="btn btn-outline t" (click)="signuppressed()">Signup</button>
+      <button type="button" class="btn btn-outline t" (click)="signuppressed()" >Signup</button>
     </li>
     <li  class="nav-item">
       <form class="d-flex" role="search">
@@ -56,3 +56,4 @@
     </div>
   </div>
 </nav>
+<app-alert status="{{satus}}" masseg="{{massegAlert}}" (closed)="closeAlertHandler($event)" *ngIf="isAlert"></app-alert>

@@ -1,8 +1,9 @@
 <div mat-dialog-title>
   <h1>Login</h1>
+  <app-alert *ngIf="alert"  masseg="Invalid username or password" status="danger" (closed)="closeAlertHandler($event)"></app-alert>
 </div>
 
-<form  >
+<form  (ngSubmit)="onsubmitlogin();$event.preventDefault()"  [formGroup]="userFormLogin" >
 
 <div mat-dialog-content>
 <!--  -->
@@ -10,13 +11,13 @@
 
     <mat-form-field>
       <mat-label>Username </mat-label>
-      <input matInput required>
+      <input matInput required formControlName="username">
     </mat-form-field>
 
     
     <mat-form-field>
       <mat-label>Password</mat-label> 
-      <input  matInput type="password" required>
+      <input  matInput type="password" required formControlName="password">
     </mat-form-field>
 
   </div>
@@ -32,7 +33,7 @@
 <div mat-dialog-actions class="action">
 
   <button mat-raised-button  (click)="close()"  >Cancel</button>
-  <button mat-raised-button  (click)="onsubmitlogin()" color="primary">Login</button>
+  <button mat-raised-button type="submit"  color="primary">Login</button>
 </div>
 
 </form>

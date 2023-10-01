@@ -1,8 +1,10 @@
 <div mat-dialog-title>
   <h1>Signup</h1>
+  
+  <app-alert *ngIf="alert" status="danger" (closed)="closeAlertHandler($event)" [masseg]="masseg"></app-alert>
 </div>
 
-<form  >
+<form  [formGroup]="formGroup"  (ngSubmit)="$event.preventDefault();signupsubmit()">
 
 <div mat-dialog-content>
 
@@ -11,7 +13,7 @@
 
   <mat-form-field appearance="outline">
     <mat-label>Username </mat-label>
-    <input matInput required>
+    <input matInput required formControlName="username" >
 
   </mat-form-field>
 </div>
@@ -21,13 +23,13 @@
 
     <mat-form-field>
       <mat-label>Password </mat-label>
-      <input matInput required type="password">
+      <input matInput required type="password" formControlName="password1">
 
     </mat-form-field>
 
     <mat-form-field >
       <mat-label>Confirm Password </mat-label>
-      <input matInput required type="password">
+      <input matInput required type="password"  formControlName="password2" >
     </mat-form-field>
 
 
@@ -39,7 +41,7 @@
 
     <mat-form-field>
       <mat-label>Email</mat-label> 
-      <input  matInput type="email" required>
+      <input  matInput type="email" required formControlName="email">
     </mat-form-field>
 
   </div>
@@ -55,7 +57,7 @@
 <div mat-dialog-actions class="action">
 
   <button mat-raised-button   (click)="close()"  >Cancel</button>
-  <button mat-raised-button   color="primary">Signup</button>
+  <button mat-raised-button   (submit)="$event.preventDefault();signupsubmit()" (click)="$event.preventDefault();signupsubmit()" type="submit" color="primary">Signup</button>
 </div>
 
 </form>

@@ -10,15 +10,24 @@ import { MatButtonModule } from "@angular/material/button";
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from "@angular/material/input";
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {MatSelectModule} from '@angular/material/select';
+import { CardComponent } from './card/card.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AlertComponent } from '../shared/alert/alert.component';
+import { SharedModule } from '../shared/shared.module';
+
+
+
 @NgModule({
   declarations: [
     StoreComponent,
     LandComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    CardComponent,
   ],
   imports: [
     CommonModule,
@@ -30,13 +39,19 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    FormsModule,
+    SharedModule
   ],
   exports : [
     StoreComponent,
     LandComponent,
     LoginComponent,
     SignupComponent,
+    CardComponent,
+    
   ],
   providers : [HttpClientModule, HttpClient]
 })
