@@ -18,17 +18,17 @@
 
 
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" routerLink="About">About</a>
         </li> 
 
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact us</a>
+          <a class="nav-link" routerLink="Contactus">Contact us</a>
         </li> 
 
 
-        <li class="nav-item">
-          <a class="nav-link" href="#">
+        <li class="nav-item " *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="cart">
             <mat-icon>shopping_cart</mat-icon>
           </a>
         </li> 
@@ -41,12 +41,17 @@
         </li> -->
       </ul>
       <ul class="navbar-nav gap-2">
-        <li class="nav-item">
-      <button type="button" class="btn btn-outline t" (click)="loginpressed() ">Login</button>
-    </li>
-        <li class="nav-item">
-      <button type="button" class="btn btn-outline t" (click)="signuppressed()" >Signup</button>
-    </li>
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <button type="button" class="btn btn-outline t" (click)="loginpressed()">Login</button>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn"    >
+          <button type="button" class="btn btn-outline t" (click)="signuppressed()" >Signup</button>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn"    >
+          <button type="button" class="btn btn-outline t" (click)="logouHandler()" >Logout</button>
+        </li>
+
+
     <li  class="nav-item">
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Find your need . . ." aria-label="Search">
@@ -56,4 +61,6 @@
     </div>
   </div>
 </nav>
+<div class="t3ban__akbtn" *ngIf="isAlert">
 <app-alert status="{{satus}}" masseg="{{massegAlert}}" (closed)="closeAlertHandler($event)" *ngIf="isAlert"></app-alert>
+</div>

@@ -16,9 +16,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select';
 import { CardComponent } from './card/card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AlertComponent } from '../shared/alert/alert.component';
+// import { AlertComponent } from '../shared/alert/alert.component';
 import { SharedModule } from '../shared/shared.module';
 
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { AboutComponent } from './about/about.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { CartComponent } from './cart/cart.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -28,6 +33,9 @@ import { SharedModule } from '../shared/shared.module';
     LoginComponent,
     SignupComponent,
     CardComponent,
+    AboutComponent,
+    ContactusComponent,
+    CartComponent,
   ],
   imports: [
     CommonModule,
@@ -43,7 +51,9 @@ import { SharedModule } from '../shared/shared.module';
     MatSelectModule,
     ReactiveFormsModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    NgxMatSelectSearchModule,
+    MatCheckboxModule
   ],
   exports : [
     StoreComponent,

@@ -1,5 +1,5 @@
 import { DialogRef } from '@angular/cdk/dialog';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ApiService } from '../api.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
@@ -14,14 +14,20 @@ export class LoginComponent {
 
   public userFormLogin:FormGroup;
   alert:boolean = false
+  account:any;
   
+  @Output() loggedInStatus =  new EventEmitter<any>();
+
+
+
+
   constructor(
     private _dialogRef:DialogRef<LoginComponent>,
     private _service:ApiService,
     private _formBuilder:FormBuilder,
     private _pageTitle:Title,
     ) {
-    this.userFormLogin = _formBuilder.group({
+    this.userFormLogin = this._formBuilder.group({
       username : "",
       password : "",
     })
@@ -37,7 +43,7 @@ export class LoginComponent {
 
 
   closeAlertHandler(data:boolean){
-    console.log(data)
+    
     this.alert = data
   }
 
@@ -47,8 +53,11 @@ export class LoginComponent {
       this._service.loginrequest(this.userFormLogin.value).subscribe(
         {
           next : (value) =>{
-            console.log("loremloremloremloremloremloremlorem")
+            // console.log("loremloremloremloremloremloremlorem")
+            this.loggedInStatus.emit( ["success", 'You successfuly logged in ' , value] )
             console.log(value)
+            
+
             this.close( )
           },
           error : err =>{

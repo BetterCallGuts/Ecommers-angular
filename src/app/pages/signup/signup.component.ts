@@ -49,12 +49,11 @@ export class SignupComponent {
 
           next : (value)=> {
             console.log(value)
-            this.statusOfSignup.emit(["success", 'You successfuly created an account'])
+            this.statusOfSignup.emit(["success", 'You successfuly created an account', value])
             this.close()
           },
           error : (error) =>{
            this.alert = true;
-           console.log(error.error.status)
            this.masseg = error.error.status
            this.status = 'danger'
 

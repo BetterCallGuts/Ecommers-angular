@@ -4,16 +4,34 @@
   <section class="filter">
 
   <div class="selection">
-      <mat-label>Select</mat-label>
-  <mat-select>
-    <mat-option value="one">First option</mat-option>
-    <mat-option value="two">Second option</mat-option>
-  </mat-select></div>
+    <mat-form-field>
+      <mat-label>Cars</mat-label>
+      <mat-select multiple>
+        <mat-select-trigger>
+          <!-- {{car.Name || ''}} -->
+          
+        </mat-select-trigger>
+        <mat-option *ngFor="let car of cars " [value]="car">{{car}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
 
 
     <div class="clear">
       <button mat-raised-button>Clear</button>
     </div>
+  </div>
+
+
+
+
+  <section class="example-section" >
+    <h4>Select Categories:</h4>
+    <p *ngIf="">
+      <mat-checkbox formControlName="pepperoni"     color="primary">Pepperoni</mat-checkbox>
+    </p>
+
+  </section>
   </section>
 
 
@@ -22,7 +40,7 @@
 
   <section class="shop">
      
-<app-card imgpath="gg"></app-card>
+    <app-card imgpath="gg"></app-card>
   </section>
 
 
