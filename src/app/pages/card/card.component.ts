@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Main } from 'src/app/main';
 
 @Component({
   selector: 'app-card',
@@ -7,7 +8,18 @@ import { Component, Input } from '@angular/core';
 })
 export class CardComponent {
 
-@Input() imgpath:any;
+
+@Input() objects:any;
+        url:string = Main.API_IMG_URL;
+        pound:string = Main.POUND;
+
+
+
+
+constructor () {  
+
+  
+}
 
 
 }

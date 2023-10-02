@@ -18,7 +18,7 @@ import { CardComponent } from './card/card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { AlertComponent } from '../shared/alert/alert.component';
 import { SharedModule } from '../shared/shared.module';
-
+import {MatCardModule} from '@angular/material/card';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { AboutComponent } from './about/about.component';
 import { ContactusComponent } from './contactus/contactus.component';
@@ -53,7 +53,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     FormsModule,
     SharedModule,
     NgxMatSelectSearchModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule
   ],
   exports : [
     StoreComponent,

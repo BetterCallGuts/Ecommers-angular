@@ -13,21 +13,18 @@ export class StoreComponent implements  OnInit {
   ngOnInit(): void {
     this.getalldata()
   }
-  cars:Array<object > = []
-
+  cars:Array<string>       = [];
+  categories:Array<string> = [];
+  cards:Array<object>      = [];
 
 
 
   constructor (
-    private _pageTitle:Title, 
-    private _api:ApiService,
-    
-
+    private _pageTitle:Title ,
+    private _api:ApiService  ,
     )
-    {
-    this._pageTitle.setTitle(`Store|${Main.Appname}`)
-
-
+    { 
+      this._pageTitle.setTitle(`Store|${Main.Appname}`)
   }
   
   getalldata ( ) {
@@ -39,7 +36,14 @@ export class StoreComponent implements  OnInit {
           this.cars.push(obj.Name)
           console.log(obj.Name) 
         }
+        for (let cat of val.categories) {
+          this.categories.push(cat.name)
+        }
         // this.cars = val.cars
+        this.cards = val.items
+        console.log(this.cards)
+        // console.log('finished')
+        // console.log(this.cards)
       },
 
       error: (err) => {

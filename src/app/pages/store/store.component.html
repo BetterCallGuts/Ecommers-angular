@@ -8,8 +8,10 @@
       <mat-label>Cars</mat-label>
       <mat-select multiple>
         <mat-select-trigger>
-          <!-- {{car.Name || ''}} -->
-          
+
+
+        
+
         </mat-select-trigger>
         <mat-option *ngFor="let car of cars " [value]="car">{{car}}</mat-option>
       </mat-select>
@@ -27,8 +29,8 @@
 
   <section class="example-section" >
     <h4>Select Categories:</h4>
-    <p *ngIf="">
-      <mat-checkbox formControlName="pepperoni"     color="primary">Pepperoni</mat-checkbox>
+    <p *ngFor="let cat of categories">
+      <mat-checkbox  [value]="cat"     color="primary">{{cat}}</mat-checkbox>
     </p>
 
   </section>
@@ -40,7 +42,7 @@
 
   <section class="shop">
      
-    <app-card imgpath="gg"></app-card>
+    <app-card *ngFor="let card of cards" [objects]="card"></app-card>
   </section>
 
 
