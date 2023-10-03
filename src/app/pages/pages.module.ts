@@ -25,6 +25,9 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { CartComponent } from './cart/cart.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CarddetailComponent } from './carddetail/carddetail.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatIconModule } from "@angular/material/icon";
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 @NgModule({
@@ -56,7 +59,10 @@ import { CarddetailComponent } from './carddetail/carddetail.component';
     SharedModule,
     NgxMatSelectSearchModule,
     MatCheckboxModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatButtonToggleModule
   ],
   exports : [
     StoreComponent,

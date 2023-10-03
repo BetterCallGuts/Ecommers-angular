@@ -5,10 +5,9 @@
 .movie {
   width: 310px;
   height: 460px;
-  margin: 1.5rem;
+  // margin: 1.5rem;
 
   position: relative;
-  border-radius: 12px;
   overflow: hidden;
   border: none;
 
@@ -57,6 +56,11 @@
   letter-spacing: 2px;
   font-weight: 500;
   color: #f0f0f0;
+}
+.movie:hover div:nth-of-type(3) {
+  span, h3{
+  color: black;
+  }
 }
 
 .movie div:nth-of-type(3) h3 {

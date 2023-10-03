@@ -18,7 +18,7 @@ export class StoreComponent implements  OnInit {
   }
   cars:Array<string>       = [];
   categories:Array<string> = [];
-  cards:Array<object>      = [];
+  cards:Array<object>  = [];
 
 
 
@@ -35,17 +35,17 @@ export class StoreComponent implements  OnInit {
     
     this._api.getalldata().subscribe({
       next : (val) => {
-        console.log(val)
+        // console.log(val)
         for (let obj of val.cars) {
           this.cars.push(obj.Name)
-          console.log(obj.Name) 
+          // console.log(obj.Name) 
         }
         for (let cat of val.categories) {
           this.categories.push(cat.name)
         }
         // this.cars = val.cars
         this.cards = val.items
-        console.log(this.cards)
+        // console.log(this.cards)
         // console.log('finished')
         // console.log(this.cards)
       },
@@ -56,9 +56,12 @@ export class StoreComponent implements  OnInit {
     })
   }
 
-  openCardDetail(card:{id: number, category: number, name: string, description: string, price: number, is_sold : boolean, ordered_by : Array<number>, image:string}){
+  openCardDetail(card:object){
     let dialog = this.openTheDialog.open(CarddetailComponent);
     dialog.componentInstance.data = card
+    dialog.componentInstance.cards= this.cards
+    // console.log(card)
+    // console.log(typeof card)
     
 
 

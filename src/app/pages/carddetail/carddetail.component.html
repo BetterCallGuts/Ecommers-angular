@@ -1,1 +1,64 @@
-||
+
+
+<mat-spinner *ngIf="!ready"></mat-spinner>
+
+
+<section class="the__dialog__itself">
+  <div mat-dialog-title>
+  <!--  -->
+  <button
+   mat-icon-button 
+   color="primary"
+    aria-label="Example icon button with a home icon" 
+    class="closeIcone" 
+    *ngIf="ready"
+  
+  (click)="closeDialogComponent();"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+
+  <section class="main" *ngIf="ready" mat-dialog-content>
+
+    <section class="top" >
+    <div class="left">
+      <img src="{{url}}{{data.image}}" alt="{{data.name}}">
+    </div>
+    
+    <div class="right">
+
+      <h1>{{data.name}}</h1>
+
+      
+      Price:<h2>{{data.price}}{{pound}}</h2>
+      <div class="buttons">
+        <button  mat-raised-button (click)="removeOne();"><mat-icon>remove</mat-icon></button>
+        <button  mat-raised-button disabled>{{howManyOfThisItem}}</button>
+        <button  mat-raised-button (click)="addOne();"><mat-icon>add</mat-icon></button>
+      </div>
+      <div class="description">
+        <p>
+        {{data.description}}
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+  
+  <hr>
+  
+  <section class="down__relateditems"  >
+
+      
+    <button *ngFor="let card of cards" mat-raised-button (click)="openCardDetail(card);" >
+      <app-card  [objects]="card"></app-card>
+    </button>
+    </section>
+
+  </section>
+  <span class="spacer" mat-dialog-close=""></span>
+<!--  -->
+</section>
