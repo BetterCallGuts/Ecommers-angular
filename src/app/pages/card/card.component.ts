@@ -18,7 +18,6 @@ export class CardComponent {
 
 constructor () {  
 
-  
 }
 
 

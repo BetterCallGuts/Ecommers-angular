@@ -24,6 +24,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { CartComponent } from './cart/cart.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { CarddetailComponent } from './carddetail/carddetail.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     AboutComponent,
     ContactusComponent,
     CartComponent,
+    CarddetailComponent,
   ],
   imports: [
     CommonModule,

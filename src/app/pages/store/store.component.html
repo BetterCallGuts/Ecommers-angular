@@ -42,7 +42,8 @@
 
   <section class="shop">
      
-    <app-card *ngFor="let card of cards" [objects]="card"></app-card>
+    <button *ngFor="let card of cards" mat-raised-button (click)="openCardDetail(card);" >
+      <app-card  [objects]="card"></app-card></button>
   </section>
 
 

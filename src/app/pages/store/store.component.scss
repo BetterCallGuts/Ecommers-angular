@@ -5,7 +5,7 @@ main{
   display: flex;
   gap: 20px;
   background: #e5e7eb;
-  height: 100vh;
+  height: fit-content;
   padding: 5px   10px;
 
 
@@ -40,5 +40,31 @@ main{
 
   section.shop{
     background-color: #e5e7eb;
+  }
+
+
+  section.shop{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+   
+
+    button[ mat-raised-button]{
+      width: fit-content !important;
+      height: fit-content !important  ;
+      padding: 0 !important;
+      margin: 0 !important;
+      border: 0 !important;
+      outline: none;
+
+      span{
+        padding: 0 !important;
+        margin: 0 !important;
+        border: 0 !important;
+        outline: none;
+      }
+
+    }
   }
 }

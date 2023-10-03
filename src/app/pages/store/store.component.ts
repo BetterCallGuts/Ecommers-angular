@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Main } from '../../main';
 import { ApiService } from '../api.service';
+import { MatDialog  } from "@angular/material/dialog";
+import { CarddetailComponent } from '../carddetail/carddetail.component';
+
 
 @Component({
   selector: 'app-store',
@@ -22,6 +25,7 @@ export class StoreComponent implements  OnInit {
   constructor (
     private _pageTitle:Title ,
     private _api:ApiService  ,
+    private openTheDialog:MatDialog,
     )
     { 
       this._pageTitle.setTitle(`Store|${Main.Appname}`)
@@ -52,5 +56,12 @@ export class StoreComponent implements  OnInit {
     })
   }
 
+  openCardDetail(card:{id: number, category: number, name: string, description: string, price: number, is_sold : boolean, ordered_by : Array<number>, image:string}){
+    let dialog = this.openTheDialog.open(CarddetailComponent);
+    dialog.componentInstance.data = card
+    
+
+
+  }
 
 }
