@@ -1,9 +1,11 @@
 import { DialogRef } from '@angular/cdk/dialog';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from  '../../pages/login/login.component';
 import { SignupComponent } from '../../pages/signup/signup.component';
 import { state } from '@angular/animations';
+import { asyncScheduler } from 'rxjs';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +19,6 @@ export class HeaderComponent implements OnInit {
   _dialogref:any;
   isLoggedIn!:boolean;
 
-  @Output() auth_data =  new EventEmitter<any>();
 
 
   ngOnInit(): void {
@@ -29,7 +30,11 @@ export class HeaderComponent implements OnInit {
   constructor(private _dialog:MatDialog) {}
 
 
-
+  @HostListener('window:beforeunload', ['$event'])
+  unloadHandler(event: Event) {
+    window.opener.location.reload();
+  
+  }
 
   loginpressed():void {
     this._dialogref = this._dialog.open(LoginComponent)
@@ -38,10 +43,12 @@ export class HeaderComponent implements OnInit {
           this.satus       = val[0];
           this.isAlert     = true;
           this.massegAlert = val[1];
-
           this.isLoggedIn = true
           localStorage.setItem('isloggedin', 'true'); 
-          this.auth_data.emit(val[2])
+          localStorage.setItem('userid', val[2].id); 
+          
+          location.reload()
+
 
         }
     )
@@ -57,7 +64,9 @@ export class HeaderComponent implements OnInit {
         this.massegAlert = val[1]
         this.isLoggedIn = true
         localStorage.setItem('isloggedin', 'true'); 
-        this.auth_data.emit(val[2])
+        localStorage.setItem('userid', val[2].id); 
+        location.reload()
+
       }
       )
 
@@ -84,7 +93,16 @@ export class HeaderComponent implements OnInit {
 
   logouHandler(){
     localStorage.setItem('isloggedin' , 'false');
-    this.isLoggedIn = false
+    localStorage.removeItem('userid');
+      location.reload()
+    
+    
+    // this.isLoggedIn = false
+    // this.isAlert = true
+    // this.massegAlert = "Successfully logged out!"
+    // this.satus       = "warning"
+
+
 
   }
 

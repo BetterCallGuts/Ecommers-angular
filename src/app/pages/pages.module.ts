@@ -28,7 +28,8 @@ import { CarddetailComponent } from './carddetail/carddetail.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatIconModule } from "@angular/material/icon";
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-
+import {MatGridListModule} from '@angular/material/grid-list';
+import { UpdatecardComponent } from './updatecard/updatecard.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     ContactusComponent,
     CartComponent,
     CarddetailComponent,
+    UpdatecardComponent,
   ],
   imports: [
     CommonModule,
@@ -62,7 +64,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatCardModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatGridListModule
   ],
   exports : [
     StoreComponent,

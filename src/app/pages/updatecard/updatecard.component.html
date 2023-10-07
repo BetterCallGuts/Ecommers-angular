@@ -41,20 +41,19 @@
       </div>
       <div class="total">
         <div class="totalorder">
-        Total ordered: {{total}}
+       
+          <span style="font-size: 1rem;">Total: {{total   }}</span>
         <br>
         Ordered: {{ordered}}
       </div>
 
 
       
-      <div class="totalcart">
-        Total: {{totalCounter   }}
-
-      </div>
+      
       </div>
       <div class="addToCart">
-        <button mat-raised-button (click)="addToCart();" >Add to cart <mat-icon>add_shopping_cart</mat-icon></button>
+        <button mat-raised-button (click)="updateCart();" >Update item<mat-icon>shopping_cart</mat-icon></button><br>
+        <button mat-raised-button (click)="deleteItemFromCart();" color="warn" >Delete<mat-icon>delete</mat-icon></button>
       </div>
 
       <div class="description">
@@ -69,16 +68,9 @@
   
   <hr>
   
-  <section class="down__relateditems"  >
 
-      <div *ngFor="let card of cards">
-    <button  mat-raised-button (click)="openCardDetail(card);"  *ngIf="card.id !== data.id">
-      <app-card  [objects]="card"></app-card>
-    </button>
-  </div>
-    </section>
 
   </section>
-  <span class="spacer" mat-dialog-close=""></span>
-<!--  -->
+
+<!-- deleteItemFromCart -->
 </section>

@@ -10,7 +10,9 @@ import { AppRoutingModule } from '../app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatToolbarModule } from "@angular/material/toolbar";
-import { AlertComponent } from './alert/alert.component'
+import { AlertComponent } from './alert/alert.component';
+import { ConfirmComponent } from './confirm/confirm.component';
+import { PaymentComponent } from './payment/payment.component'
 
 // BrowserModule,
   
@@ -21,7 +23,9 @@ import { AlertComponent } from './alert/alert.component'
   declarations: [
     HeaderComponent,
     FooterComponent,
-    AlertComponent
+    AlertComponent,
+    ConfirmComponent,
+    PaymentComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,46 @@
+section.main{
+
+  section.page__details{
+    display: flex;
+
+
+
+    div.buttons{
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 30px;
+
+      width: 100%;
+
+
+    }
+  }
+
+
+
+
+  section.shop{
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+
+    button[mat-raised-button]{
+      width: fit-content;
+      height: fit-content;
+      padding: 0;
+
+    }
+  }
+}
+
+
+
+section.empty{
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  font-size: 2rem;
+}

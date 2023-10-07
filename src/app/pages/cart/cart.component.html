@@ -1,1 +1,42 @@
-<p>cart works!</p>
+<section class="main" *ngIf="!empty">
+  
+    
+    <section class="page__details">
+
+      <div class="buttons">
+
+        <button mat-raised-button  color="primary" (click)="openPayment()">
+          Pay?
+        </button>      
+        <button mat-raised-button color="warn" (click)="deleteCart();">
+          Clear Cart
+        </button>      
+      
+      </div>
+
+    </section>
+
+
+
+    <hr>  
+
+
+
+
+
+  <section class="shop">
+    
+    <button *ngFor="let card of cards" mat-raised-button  (click)="openCardDetail(card);" >
+      
+      <app-card  [objects]="card"></app-card>
+
+      </button>
+
+  </section>
+</section>
+
+
+<section class="empty" *ngIf="empty">
+
+  <p>Youre Cart is Empty :/</p>
+</section>

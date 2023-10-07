@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class MainWorkComponent {
 
+
+
+    authHandler(isauthed:any){
+      console.log(isauthed)
+
+  }
 }

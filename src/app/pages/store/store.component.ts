@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Main } from '../../main';
 import { ApiService } from '../api.service';
@@ -19,7 +19,6 @@ export class StoreComponent implements  OnInit {
   cars:Array<string>       = [];
   categories:Array<string> = [];
   cards:Array<object>  = [];
-
 
 
   constructor (
@@ -56,10 +55,39 @@ export class StoreComponent implements  OnInit {
     })
   }
 
-  openCardDetail(card:object){
-    let dialog = this.openTheDialog.open(CarddetailComponent);
-    dialog.componentInstance.data = card
-    dialog.componentInstance.cards= this.cards
+  openCardDetail(card:any){
+    
+    let auth:any = localStorage.getItem('isloggedin')
+    card = JSON.stringify(card)
+    card = JSON.parse(card)
+    if (auth == null || auth == "false"){
+      let dialog = this.openTheDialog.open(CarddetailComponent);
+      dialog.componentInstance.cards= this.cards;
+      dialog.componentInstance.data = card;
+
+
+      dialog.componentInstance.total = 0;
+      dialog.componentInstance.ready = true
+      dialog.componentInstance.reloadHandler()
+
+    } else{
+      let dialog = this.openTheDialog.open(CarddetailComponent);
+      this._api.getCartTotalForUser(localStorage.getItem('userid'), card.id).subscribe({
+        next: (val:any)=>{
+
+          dialog.componentInstance.total     = val.howmany * card.price
+          dialog.componentInstance.ordered     = val.howmany 
+          console.log(val)
+          
+          dialog.componentInstance.data = card;
+          dialog.componentInstance.cards= this.cards;
+          dialog.componentInstance.ready = true
+          dialog.componentInstance.reloadHandler()
+
+        },
+        error: console.log
+      })
+    }
     // console.log(card)
     // console.log(typeof card)
     
