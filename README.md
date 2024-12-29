@@ -1,3 +1,6 @@
+# Alert 
+### This repo is not complete i didn't finish the project, If you wanna take a look at the porject go right a head.
+___
 # Ecommers-angular
 the back-end with this project is using the api of this website here https://github.com/BetterCallGuts/ecommerce-django
 ___
